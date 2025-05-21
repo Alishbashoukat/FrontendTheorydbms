@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Inventory from './Inventory';
+import Transaction from './Transaction';
 
 function Home() {
   return (
@@ -32,10 +33,6 @@ function Home() {
   );
 }
 
-function Transaction() {
-  return <h1 className="text-center text-2xl mt-10 text-navy">💻 Transaction Page</h1>;
-}
-
 function Visualization() {
   return <h1 className="text-center text-2xl mt-10 text-navy">📊 Data Visualization Page</h1>;
 }
@@ -48,6 +45,7 @@ function App() {
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/transaction" element={<Transaction />} />
         <Route path="/visualization" element={<Visualization />} />
+
       </Routes>
     </Router>
   );
