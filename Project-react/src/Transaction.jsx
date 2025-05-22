@@ -1,5 +1,4 @@
-
-
+// Paste the updated code below into your file:
 
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
@@ -64,17 +63,17 @@ export default function Transaction() {
   };
 
   return (
-    <div className="min-h-screen p-4 flex flex-col lg:flex-row gap-4 bg-[#FFFDD0]">
+    <div className="min-h-screen p-4 flex flex-col lg:flex-row gap-4" style={{ backgroundColor: '#EAEFEF' }}>
       {/* LEFT COLUMN */}
-      <div className="flex-1 space-y-4 bg-[#FFFDD0] p-2 rounded-lg border border-[#003366]">
+      <div className="flex-1 space-y-4 p-2 rounded-lg border" style={{ backgroundColor: '#EAEFEF', borderColor: '#B8CFCE' }}>
         {/* Available Products */}
-        <div className="border border-[#003366] rounded-lg overflow-x-auto">
-          <h2 className="text-2xl font-bold text-center bg-pink-600 text-white py-2 rounded-t-lg">
+        <div className="rounded-lg overflow-x-auto border" style={{ borderColor: '#B8CFCE' }}>
+          <h2 className="text-2xl font-bold text-center py-2 rounded-t-lg" style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>
             Available Cars
           </h2>
-          <table className="w-full table-auto min-w-[600px] text-[#003366]">
+          <table className="w-full table-auto min-w-[600px]" style={{ color: '#333446' }}>
             <thead>
-              <tr className="bg-pink-600 text-white">
+              <tr style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>
                 <th className="py-1 px-2">Car Model</th>
                 <th className="py-1 px-2">Type</th>
                 <th className="py-1 px-2">Price</th>
@@ -85,13 +84,15 @@ export default function Transaction() {
               {filteredProducts.map((p, idx) => (
                 <tr
                   key={p.id}
-                  className={`text-center cursor-pointer hover:bg-yellow-200 ${
-                    selected?.id === p.id
-                      ? 'bg-[#003366] text-white'
+                  className={`text-center cursor-pointer`}
+                  style={{
+                    backgroundColor: selected?.id === p.id
+                      ? '#333446'
                       : idx % 2
-                      ? 'bg-[#F5F5DC]'
-                      : 'bg-[#FAFAD2]'
-                  }`}
+                      ? '#EAEFEF'
+                      : '#B8CFCE',
+                    color: selected?.id === p.id ? '#EAEFEF' : '#333446'
+                  }}
                   onClick={() => setSelected(p)}
                 >
                   <td className="py-1 px-2">{p.name}</td>
@@ -105,13 +106,13 @@ export default function Transaction() {
         </div>
 
         {/* Products to be Sold */}
-        <div className="border border-[#003366] rounded-lg overflow-x-auto">
-          <h2 className="text-2xl font-bold text-center bg-pink-600 text-white py-2 rounded-t-lg">
+        <div className="rounded-lg overflow-x-auto border" style={{ borderColor: '#B8CFCE' }}>
+          <h2 className="text-2xl font-bold text-center py-2 rounded-t-lg" style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>
             Cars to be Sold
           </h2>
-          <table className="w-full table-auto min-w-[600px] text-[#003366]">
+          <table className="w-full table-auto min-w-[600px]" style={{ color: '#333446' }}>
             <thead>
-              <tr className="bg-pink-600 text-white">
+              <tr style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>
                 <th className="py-1 px-2">Car Model</th>
                 <th className="py-1 px-2">Type</th>
                 <th className="py-1 px-2">Price</th>
@@ -120,7 +121,7 @@ export default function Transaction() {
             </thead>
             <tbody>
               {sold.map(s => (
-                <tr key={s.id} className="text-center bg-[#FAFAD2]">
+                <tr key={s.id} className="text-center" style={{ backgroundColor: '#B8CFCE' }}>
                   <td className="py-1 px-2">{s.name}</td>
                   <td className="py-1 px-2">{s.class}</td>
                   <td className="py-1 px-2">Rs {s.price.toLocaleString()}</td>
@@ -133,11 +134,11 @@ export default function Transaction() {
       </div>
 
       {/* RIGHT COLUMN */}
-      <div className="w-full lg:w-96 rounded-lg p-4 space-y-4 bg-white text-[#003366] border border-[#003366]">
-        {/* Go Back */}
+      <div className="w-full lg:w-96 rounded-lg p-4 space-y-4" style={{ backgroundColor: '#EAEFEF', color: '#333446', border: '1px solid #B8CFCE' }}>
         <Link
           to="/"
-          className="block bg-red-600 hover:bg-red-700 text-center rounded-full py-1 font-bold text-white"
+          className="block text-center rounded-full py-1 font-bold"
+          style={{ backgroundColor: '#333446', color: '#EAEFEF' }}
         >
           ← Go Back
         </Link>
@@ -147,20 +148,21 @@ export default function Transaction() {
         <div className="space-y-3">
           {/* Selected Item */}
           <div className="grid grid-cols-3 items-center gap-2">
-            <label className="col-span-1 bg-[#001F4D] text-white py-1 px-2 rounded">
+            <label className="col-span-1 py-1 px-2 rounded" style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>
               Selected Car
             </label>
-            <div className="col-span-2 bg-[#F5F5DC] text-[#003366] py-1 px-2 rounded text-center">
+            <div className="col-span-2 py-1 px-2 rounded text-center" style={{ backgroundColor: '#B8CFCE' }}>
               {selected ? selected.name : 'None'}
             </div>
           </div>
 
           {/* Filter */}
           <div className="grid grid-cols-3 items-center gap-2">
-            <label className="col-span-1 bg-[#001F4D] text-white py-1 px-2 rounded">Filter</label>
+            <label className="col-span-1 py-1 px-2 rounded" style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>Filter</label>
             <input
               type="text"
-              className="col-span-2 py-1 px-2 rounded text-[#003366] border border-[#001F4D]"
+              className="col-span-2 py-1 px-2 rounded"
+              style={{ backgroundColor: '#EAEFEF', border: '1px solid #B8CFCE', color: '#333446' }}
               placeholder="Search a Car"
               value={filter}
               onChange={e => setFilter(e.target.value)}
@@ -169,11 +171,12 @@ export default function Transaction() {
 
           {/* Quantity */}
           <div className="grid grid-cols-3 items-center gap-2">
-            <label className="col-span-1 bg-[#001F4D] text-white py-1 px-2 rounded">Quantity</label>
+            <label className="col-span-1 py-1 px-2 rounded" style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>Quantity</label>
             <input
               type="number"
               min="0"
-              className="col-span-2 py-1 px-2 rounded text-[#003366] border border-[#001F4D]"
+              className="col-span-2 py-1 px-2 rounded"
+              style={{ backgroundColor: '#EAEFEF', border: '1px solid #B8CFCE', color: '#333446' }}
               value={qty}
               onChange={e => setQty(Number(e.target.value))}
             />
@@ -181,11 +184,12 @@ export default function Transaction() {
 
           {/* Add Item Button */}
           <button
-            className={`w-full py-2 rounded font-semibold transition duration-200 border border-[#001F4D] ${
-              selected && qty > 0
-                ? 'bg-[#003366] hover:bg-[#004080] text-white cursor-pointer'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
+            className="w-full py-2 rounded font-semibold transition duration-200"
+            style={{
+              backgroundColor: selected && qty > 0 ? '#333446' : '#7F8CAA',
+              color: '#EAEFEF',
+              cursor: selected && qty > 0 ? 'pointer' : 'not-allowed'
+            }}
             onClick={() => {
               if (selected && qty > 0) addItem();
             }}
@@ -195,7 +199,13 @@ export default function Transaction() {
 
           {/* Remove Item */}
           <button
-            className="w-full bg-pink-700 hover:bg-pink-800 py-2 rounded font-semibold text-white disabled:opacity-50"
+            className="w-full py-2 rounded font-semibold"
+            style={{
+              backgroundColor: '#7F8CAA',
+              color: '#EAEFEF',
+              cursor: selected ? 'pointer' : 'not-allowed',
+              opacity: selected ? 1 : 0.5
+            }}
             onClick={removeItem}
             disabled={!selected}
           >
@@ -204,20 +214,21 @@ export default function Transaction() {
 
           {/* Total Price */}
           <div className="grid grid-cols-3 items-center gap-2">
-            <label className="col-span-1 bg-[#001F4D] text-white py-1 px-2 rounded">
+            <label className="col-span-1 py-1 px-2 rounded" style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>
               Total Price
             </label>
-            <div className="col-span-2 bg-[#F5F5DC] text-[#003366] py-1 px-2 rounded text-right">
+            <div className="col-span-2 py-1 px-2 rounded text-right" style={{ backgroundColor: '#B8CFCE' }}>
               Rs {totalPrice.toLocaleString()}
             </div>
           </div>
 
           {/* Payment */}
           <div className="grid grid-cols-3 items-center gap-2">
-            <label className="col-span-1 bg-[#001F4D] text-white py-1 px-2 rounded">Payment</label>
+            <label className="col-span-1 py-1 px-2 rounded" style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>Payment</label>
             <input
               type="number"
-              className="col-span-2 py-1 px-2 rounded text-[#003366] border border-[#001F4D]"
+              className="col-span-2 py-1 px-2 rounded"
+              style={{ backgroundColor: '#EAEFEF', border: '1px solid #B8CFCE', color: '#333446' }}
               value={payment}
               onChange={e => setPayment(e.target.value)}
             />
@@ -225,15 +236,16 @@ export default function Transaction() {
 
           {/* Change */}
           <div className="grid grid-cols-3 items-center gap-2">
-            <label className="col-span-1 bg-[#001F4D] text-white py-1 px-2 rounded">Change</label>
-            <div className="col-span-2 bg-[#F5F5DC] text-[#003366] py-1 px-2 rounded text-right">
+            <label className="col-span-1 py-1 px-2 rounded" style={{ backgroundColor: '#333446', color: '#EAEFEF' }}>Change</label>
+            <div className="col-span-2 py-1 px-2 rounded text-right" style={{ backgroundColor: '#B8CFCE' }}>
               Rs {change.toLocaleString()}
             </div>
           </div>
 
           {/* Save Transaction */}
           <button
-            className="w-full bg-green-600 hover:bg-green-700 py-2 rounded font-bold text-white"
+            className="w-full py-2 rounded font-bold"
+            style={{ backgroundColor: '#333446', color: '#EAEFEF' }}
             onClick={saveTransaction}
           >
             Save Transaction
